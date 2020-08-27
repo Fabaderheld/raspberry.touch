@@ -70,7 +70,7 @@
     - name: "Configure Touchscreen"
       blockinfile:
         path: "/boot/config.txt"
-        insertbefore: BOF
+        insertbefore: EOF
         block: |
           max_usb_current=1
           hdmi_force_hotplug=1 
