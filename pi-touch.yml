@@ -7,11 +7,11 @@
     - faba.common
 
   tasks:
-    - name: "Remove pi user"
-      user:
-        name: pi
-        remove: yes
-        state: absent
+    # - name: "Remove pi user"
+    #   user:
+    #     name: pi
+    #     remove: yes
+    #     state: absent
 
     - name: "Install Packages"
       package:
