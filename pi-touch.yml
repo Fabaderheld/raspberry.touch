@@ -2,9 +2,9 @@
 - hosts: localhost
   connection: local
 
-  roles:
-    - faba.useraccounts
-    - faba.common
+  # roles:
+  #   - faba.useraccounts
+  #   - faba.common
 
   tasks:
     # - name: "Remove pi user"
