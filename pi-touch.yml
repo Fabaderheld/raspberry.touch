@@ -46,6 +46,7 @@
     - name: "Start X automatically on boot"
       lineinfile:
         path: "/home/pi/.bash_profile"
+        create: yes
         line: "[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx -- -nocursor"
         insertbefore: BOF
 
