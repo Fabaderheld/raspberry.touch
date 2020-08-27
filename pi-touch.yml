@@ -21,6 +21,13 @@
       hostname:
         name: "{{ hostname }}"
 
+    - name: "Change Hostname in /etc/hosts"
+      lineinfile:
+        dest: /etc/hosts
+        regexp: '^127\.0\.0\.1[ \t]+localhost'
+        line: "127.0.0.1 localhost {{ hostname }}"
+        state: present
+
     - name: "Change {{ user }} user"
       user:
         name: "{{ user }}"
@@ -61,9 +68,9 @@
           setxkbmap -option terminate:ctrl_alt_bksp
 
           # Start Chromium in kiosk mode
-          sed -i 's/"exited_cleanly":false/"exited_cleanly":true/' ~/.config/chromium/'Local State'
-          sed -i 's/"exited_cleanly":false/"exited_cleanly":true/; s/"exit_type":"[^"]\+"/"exit_type":"Normal"/' ~/.config/chromium/Default/Preferences
-          chromium-browser --disable-infobars --kiosk 'https://homeassistant.fab-it.biz'
+          sed -i "s/"exited_cleanly":false/"exited_cleanly":true/" ~/.config/chromium/"Local State"
+          sed -i "s/"exited_cleanly":false/"exited_cleanly":true/; s/"exit_type":"[^"]\+"/"exit_type":"Normal"/" ~/.config/chromium/Default/Preferences
+          chromium-browser --disable-infobars --kiosk "https://homeassistant.fab-it.biz"
 
     - name: "Start X automatically on boot"
       lineinfile:
