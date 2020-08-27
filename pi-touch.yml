@@ -20,7 +20,6 @@
     - name: "Change Hostname"
       hostname:
         name: "{{ hostname }}"
-        use: debian
 
     - name: "Change {{ user }} user"
       user:
@@ -45,6 +44,7 @@
         - x11-xserver-utils
         - xinit
         - openbox
+        - vim
 
     - name: "Openbox Configuration"
       blockinfile:
