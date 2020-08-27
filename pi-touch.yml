@@ -91,3 +91,9 @@
           hdmi_group=2 
           hdmi_mode=87 
           hdmi_cvt 1024 600 60 6 0 0 0
+
+    - name: "Configure Touchscreen"
+      lineinfile:
+        path: "/boot/config.txt"
+        regex: '(dtoverlay=vc4-fkms-V3D)'
+        line: "#dtoverlay=vc4-fkms-V3D"
