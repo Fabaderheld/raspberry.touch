@@ -4,6 +4,7 @@
 
   vars:
     user: pi
+    hostname: "raspberry-touch"
 
   # roles:
   #   - faba.useraccounts
@@ -15,6 +16,11 @@
     #     name: pi
     #     remove: yes
     #     state: absent
+
+    - name: "Change Hostname"
+      hostname:
+        name: "{{ hostname }}"
+        use: debian
 
     - name: "Change {{ user }} user"
       user:
