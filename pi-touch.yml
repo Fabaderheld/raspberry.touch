@@ -16,7 +16,7 @@
     - name: "Install Packages"
       package:
         name: "{{ item }}"
-        state: installed
+        state: present
       loop:
         - chromium-browser
         - xserver-xorg
