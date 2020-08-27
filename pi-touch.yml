@@ -22,7 +22,7 @@
         state: present
         password: "$6$mmXmrHeLPspJf$TaDy/qRfYTdO7hYc0sqr.Arb0vskkj3Dv4ZN3RSKvjR.LwmdvjJtR9o5lyhVbCSvz4S36qWHy4348a4VG5r6n0"
 
-    - name: "Key Public Key from GitHub"
+    - name: "Get Public Key from GitHub"
       authorized_key:
         user: "{{ user }}"
         state: present
@@ -61,8 +61,7 @@
 
     - name: "Start X automatically on boot"
       lineinfile:
-        path: "/home/{{ user }}/.bash_profile"
-        create: yes
+        path: "/home/{{ user }}/.profile"
         owner: "{{ user }}"
         group: "{{ user }}"
         line: "[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx -- -nocursor"
