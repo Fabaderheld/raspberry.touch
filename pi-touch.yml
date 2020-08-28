@@ -6,17 +6,7 @@
     user: pi
     hostname: "raspberry-touch"
 
-  # roles:
-  #   - faba.useraccounts
-  #   - faba.common
-
   tasks:
-    # - name: "Remove pi user"
-    #   user:
-    #     name: pi
-    #     remove: yes
-    #     state: absent
-
     - name: "Change Hostname"
       hostname:
         name: "{{ hostname }}"
@@ -54,8 +44,11 @@
 
     - name: "LXDE Configuration"
       blockinfile:
-        path: "/etc/xdg/lxsession/LXDE-pi/autostart"
+        path: "/home/pi/.config/lxsession/LXDE/autostart"
         create: "yes"
+        owner: "{{ user }}"
+        group: "{{ user }}"
+        mode: "740"
         insertbefore: BOF
         block: |
           # Disable any form of screen saver / screen blanking / power management
