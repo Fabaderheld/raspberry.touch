@@ -87,9 +87,10 @@
     - name: "Configure Touchscreen"
       lineinfile:
         path: "/boot/config.txt"
-        regex: '(dtoverlay=vc4-fkms-V3D)'
+        regex: "(dtoverlay=vc4-fkms-V3D)"
         line: "#dtoverlay=vc4-fkms-V3D"
       notify: restart server
+
     - name: "Install VNC"
       package:
         name: "realvnc-vnc-server"
@@ -98,3 +99,5 @@
     - name: "Enable VNC"
       shell: "raspi-config nonint do_vnc 0"
 
+    - name: "Enable Autologin to Desktop"
+      shell: "raspi-config nonint do_boot_behaviour B4"
