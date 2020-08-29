@@ -90,3 +90,11 @@
         regex: '(dtoverlay=vc4-fkms-V3D)'
         line: "#dtoverlay=vc4-fkms-V3D"
       notify: restart server
+    - name: "Install VNC"
+      package:
+        name: "realvnc-vnc-server"
+        state: present
+
+    - name: "Enable VNC"
+      shell: "raspi-config nonint do_vnc 0"
+
